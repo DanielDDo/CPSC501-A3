@@ -1,12 +1,12 @@
 
 public class Class4A {
-	public String s;
+	public int int1;
 	
-	public Class4A(String s) {
-		this.s = s;
+	public Class4A(int i) {
+		this.int1 = i;
 	}
 	
-	public void setString(String s) {
-		this.s = s;
+	public void setInt(int i) {
+		this.int1 = i;
 	}
 }

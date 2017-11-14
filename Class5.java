@@ -1,14 +1,14 @@
-import java.util.Stack;
+import java.util.ArrayList;
 
 public class Class5 {
-	public Stack<Class5A> stack;
+	public ArrayList<Class5A> list;
 	
 	public Class5() {
-		stack = new Stack<Class5A>();
+		list = new ArrayList<Class5A>();
 	}
 	
 	public void pushClass(String s) {
 		Class5A c5a = new Class5A(s);
-		stack.push(c5a);
+		list.add(c5a);
 	}
 }

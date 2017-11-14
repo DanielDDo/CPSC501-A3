@@ -6,8 +6,8 @@ public class Class4 {
 		this.c4a = new Class4A[3];
 	}
 	
-	public void setClass(int index, String s) {
-		Class4A c4a = new Class4A(s);
+	public void setClass(int index, int i) {
+		Class4A c4a = new Class4A(i);
 		this.c4a[index] = c4a;
 	}
 }

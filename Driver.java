@@ -1,11 +1,14 @@
 
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
 		ObjectCreator oc =  new ObjectCreator();
 		oc.displayIntro();
 		oc.displayMenu();
-		oc.create();
+		
+		Object obj = oc.createObject4();
+		Serializer serializer = new Serializer();
+		serializer.serialize(obj);
 		
 	}
 

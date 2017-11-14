@@ -21,7 +21,7 @@ public class ObjectCreator {
 		System.out.println("5 - An object with a collection of other objects");
 	}
 	
-	public void create() {
+	public Object create() {
 		Object obj;
 		while(true) {
 			System.out.print("> ");
@@ -46,7 +46,7 @@ public class ObjectCreator {
 			}
 		}
 		System.out.println("Object Creator Complete!");
-		System.out.println("Sending class to Serializer");
+		return obj;
 	}
 	
 	
@@ -60,7 +60,7 @@ public class ObjectCreator {
 	}
 	
 	public Class2 createObject2() {
-		Class2 c2 = new Class2(takeIntInput(), takeStrInput());
+		Class2 c2 = new Class2(takeIntInput(), takeCharInput());
 		System.out.println("Object 2 created");
 		return c2;
 	}
@@ -77,7 +77,7 @@ public class ObjectCreator {
 	public Class4 createObject4() {
 		Class4 c4 = new Class4();
 		for (int i = 0; i < 3; i++) {
-			c4.setClass(i, takeStrInput());
+			c4.setClass(i, takeIntInput());
 		}
 		System.out.println("Object 4 created");
 		return c4;
@@ -85,7 +85,9 @@ public class ObjectCreator {
 	
 	public Class5 createObject5() {
 		Class5 c5 = new Class5();
-		c5.pushClass(takeStrInput());
+		for (int i = 0; i < 3; i++) {
+			c5.pushClass(takeStrInput());
+		}
 		System.out.println("Object 5 created");
 		return c5;
 	}
@@ -110,11 +112,16 @@ public class ObjectCreator {
 	}
 	
 	public Character takeCharInput() {
+		char baseInput = '#';
 		String input;
-		System.out.println("Initialize the character value (default is '')");
+		System.out.println("Initialize the character value (default is '#')");
 		System.out.print("> ");
 		input = in.nextLine();
+		if (input.length() == 0) {
+			return baseInput;
+		}
 		return input.charAt(0);
+		
 	}
 	
 	public Integer takeIntInput() {
@@ -127,10 +134,17 @@ public class ObjectCreator {
 				Integer.valueOf(input);
 				break;
 			} catch (NumberFormatException nfe) {
+				if (input.equals("")) {
+					break;
+				}
 				System.out.println("Not a valid integer");
 			}
 		}
-		return Integer.valueOf(input);
+		if (input.equals("")) {
+			return -1;
+		} else {
+			return Integer.valueOf(input);
+		}
 	}
 	
 	public String takeStrInput() {
