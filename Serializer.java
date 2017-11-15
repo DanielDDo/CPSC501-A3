@@ -1,13 +1,11 @@
 import org.jdom2.*;
 
 import java.io.IOException;
-import java.lang.Class;
 import java.lang.Object;
 import java.lang.reflect.*;
 
 import org.jdom2.output.*;
 
-import java.util.Collection;
 import java.util.IdentityHashMap;
 import java.util.LinkedList;
 
@@ -21,7 +19,8 @@ public class Serializer {
 		queue = new LinkedList<Object>();
 	}
 	
-	public void serialize(Object obj) throws IllegalArgumentException, IllegalAccessException {
+	public org.jdom2.Document serialize(Object obj) throws IllegalArgumentException, IllegalAccessException {
+		System.out.println("Serializing Object\n . . .\n");
 		XMLOutputter op = new XMLOutputter();
 		op.setFormat(Format.getPrettyFormat());		
 		Element root = new Element("serialized");
@@ -87,11 +86,13 @@ public class Serializer {
 			}
 			root.addContent(objectElement);
 		}
-		
-		
+		System.out.println("Serialization Complete!");
 		try {
 			op.output(doc, System.out);
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return doc;
 	}
 }

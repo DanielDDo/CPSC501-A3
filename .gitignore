@@ -11,3 +11,8 @@
 /ObjectCreator.class
 /ObjectCreatorTest.class
 /Serializer.class
+/Client.class
+/Server.class
+/ServerDriver.class
+/Deserializer.class
+/Visualizer.class

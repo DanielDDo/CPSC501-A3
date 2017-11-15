@@ -3,8 +3,7 @@ public class Class2A {
 
 	public int int1;
 	
-	public Class2A(int i) {
-		this.int1 = i;
+	public Class2A() {
 	}
 
 	public int getInt1() {

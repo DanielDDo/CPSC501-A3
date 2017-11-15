@@ -60,7 +60,9 @@ public class ObjectCreator {
 	}
 	
 	public Class2 createObject2() {
-		Class2 c2 = new Class2(takeIntInput(), takeCharInput());
+		Class2 c2 = new Class2();
+		c2.initClass2A(takeIntInput());
+		c2.initClass2B(takeCharInput());
 		System.out.println("Object 2 created");
 		return c2;
 	}

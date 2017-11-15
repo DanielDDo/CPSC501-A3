@@ -6,10 +6,12 @@ public class Driver {
 		oc.displayIntro();
 		oc.displayMenu();
 		
-		Object obj = oc.createObject4();
+		Object obj = oc.create();
 		Serializer serializer = new Serializer();
-		serializer.serialize(obj);
+		org.jdom2.Document doc = serializer.serialize(obj);
 		
+		Client client = new Client();
+		client.sendFile(doc);
 	}
 
 }
